@@ -1,4 +1,5 @@
 import { db } from "~/server/db";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,7 @@ export default async function HomePage() {
         {images.map((image) => (
           <div key={image.id}>
             {image.name}
-            <img src={image.url} className="w-48" />
+            <Image src={image.url} alt="gallery item" className="w-48" />
           </div>
         ))}
       </div>
