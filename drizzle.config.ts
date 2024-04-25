@@ -6,7 +6,7 @@ export default {
   schema: "./src/server/db/schema.ts",
   driver: "pg",
   dbCredentials: {
-    connectionString: env.DATABASE_URL,
+    connectionString: env.POSTGRES_URL,
   },
   tablesFilter: ["nextjs-t3-app_*"],
 } satisfies Config;
