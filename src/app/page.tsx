@@ -1,8 +1,24 @@
+const imagesURLs = [
+  "https://res.cloudinary.com/dg7ubxufe/image/upload/v1714022525/cld-sample-2.jpg",
+  "https://res.cloudinary.com/dg7ubxufe/image/upload/v1714022525/cld-sample-3.jpg",
+  "https://res.cloudinary.com/dg7ubxufe/image/upload/v1714022525/cld-sample-4.jpg",
+  "https://res.cloudinary.com/dg7ubxufe/image/upload/v1714022525/cld-sample-5.jpg",
+];
+
+const images = imagesURLs.map((url, index) => ({
+  id: index,
+  src: url,
+}));
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      Hello gallery app - pull request!
+    <main className="">
+      Hello gallery app!
+      <div className="flex flex-wrap gap-4">
+        {images.map(({ id, src }) => (
+          <img key={id} src={src} className="w-48" />
+        ))}
+      </div>
     </main>
   );
 }
