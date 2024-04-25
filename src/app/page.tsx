@@ -15,7 +15,7 @@ export default function HomePage() {
     <main className="">
       Hello gallery app!
       <div className="flex flex-wrap gap-4">
-        {images.map(({ id, src }) => (
+        {[...images, ...images, ...images].map(({ id, src }) => (
           <img key={id} src={src} className="w-48" />
         ))}
       </div>

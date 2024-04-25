@@ -20,7 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter.variable}`}>{children}</body>
+      <body className={`font-sans ${inter.variable}`}>
+        <div className="border-2 border-red-600">
+          global header for all pages
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
