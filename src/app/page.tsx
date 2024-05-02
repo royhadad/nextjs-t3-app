@@ -1,20 +1,12 @@
-import { db } from "~/server/db";
 import Image from "next/image";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { ImageUploader } from "~/app/_components/ImageUpload";
-import { auth } from "@clerk/nextjs/server";
+import { getImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
 
 async function Images() {
-  const user = auth();
-  if (!user.userId) throw new Error("Unauthorized");
-
-  const images = await db.query.images.findMany({
-    orderBy: (modal, { desc }) => desc(modal.url),
-    where: (model, { eq }) => eq(model.userId, user.userId),
-  });
-
+  const images = await getImages();
   return (
     <div className="flex flex-wrap gap-4">
       {images.map((image) => (
